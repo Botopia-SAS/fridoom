@@ -42,10 +42,10 @@ const pricingTiers = [
 
 export const Pricing = () => {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-transparent">
       <div className="container">
         <div className="section-heading">
-          <h2 className="section-title">Precios</h2>
+          <h2 className="section-title font-branley">Precios</h2>
           <p className="section-description mt-5">
             Sé libre sin costo. Mejóralo con herramientas ilimitadas y exclusivas.
           </p>
@@ -64,7 +64,7 @@ export const Pricing = () => {
                 key={title}
                 className={twMerge(
                   "card",
-                  inverse === true && 'border-black bg-black text-white')}>
+                  inverse === true && ' bg-transparent backdrop-blur-md text-[#152241]')}>
                 <div className="flex justify-between">
                   <h3 className={twMerge(
                     "text-lg font-bold text-black/50",
@@ -74,7 +74,7 @@ export const Pricing = () => {
                     {title}
                   </h3>
                   {popular === true && (
-                    <div className="inline-flex text-sm px-4 py-1.5 rounded-xl border border-white/20">
+                    <div className="inline-flex text-sm px-4 py-1.5 rounded-xl border border-white/20 bg-white/30 backdrop-blur-sm">
                       <motion.span
                         animate={{
                           backgroundPositionX: "100%"

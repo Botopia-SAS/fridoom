@@ -10,25 +10,20 @@ import { Footer } from "@/sections/Footer";
 export default function Home() {
   return (
     <>
-    <div className="relative">
       {/* Video Background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-      >
-        <source src="/background.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <div className="fixed top-0 left-0 w-full h-full -z-10">
+        <img
+          src="/3d.svg"
+          alt="fondo"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-      {/* Header */}
-      <Header />
-
-      {/* Hero */}
-      <Hero />
-    </div>
+      {/* Contenido */}
+      <div className="relative">
+        <Header />
+        <Hero />
+      </div>
       <LogoTicker />
       <ProductShowcase />
       <Pricing />

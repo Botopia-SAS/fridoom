@@ -15,7 +15,7 @@ import Image from "next/image";
 
 export const LogoTicker = () => {
   return (
-    <div className="py-8 md:py-12 bg-white">
+    <div className="py-8 md:py-12 bg-transparent">
       <div className="container">
         <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
           <motion.div
@@ -32,14 +32,13 @@ export const LogoTicker = () => {
             >
             <Image src={acorns} alt="acorns" className="logo-ticker-image" />
             <Image src={BancoDeBogota} alt="BancoDeBogota" className="logo-ticker-image" />
-            <Image src={trii} alt="trii" className="logo-ticker-image" />
+            <Image src={trii} alt="trii" className="logo-ticker-image rounded-lg" />
             <Image src={BancoSantander} alt="BancoSantander" className="logo-ticker-image" />
             <Image src={hapi} alt="hapi" className="logo-ticker-image" />
             <Image src={bancolombia} alt="bancolombia" className="logo-ticker-image" />
-            <Image src={americanExpress} alt="americanExpress" className="logo-ticker-image" />
+            <Image src={americanExpress} alt="americanExpress" className="logo-ticker-image rounded-lg" />
             <Image src={robinhood} alt="robinhood" className="logo-ticker-image" />
-            <Image src={bbva} alt="bbva" className="logo-ticker-image" />
-            <Image src={nu} alt="nu" className="logo-ticker-image" />
+            <Image src={nu} alt="nu" className="logo-ticker-image rounded-lg" />
 
             <Image src={acorns} alt="acorns" className="logo-ticker-image" />
             <Image src={BancoDeBogota} alt="BancoDeBogota" className="logo-ticker-image" />
@@ -49,7 +48,6 @@ export const LogoTicker = () => {
             <Image src={bancolombia} alt="bancolombia" className="logo-ticker-image" />
             <Image src={americanExpress} alt="americanExpress" className="logo-ticker-image" />
             <Image src={robinhood} alt="robinhood" className="logo-ticker-image" />
-            <Image src={bbva} alt="bbva" className="logo-ticker-image" />
             <Image src={nu} alt="nu" className="logo-ticker-image" />
           </motion.div>
         </div>

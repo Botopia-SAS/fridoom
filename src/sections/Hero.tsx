@@ -1,9 +1,5 @@
 'use client';
 
-import ArrowIcon from "@/assets/arrow-right.svg";
-import cogImage from "@/assets/app-iphone.png";
-import coin from "@/assets/moneda.png";
-import noodleImage from "@/assets/pig.png";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -13,79 +9,44 @@ export const Hero = () => {
     target: heroRef,
     offset: ["start end", "end start"],
   });
-  const translateY = useTransform(scrollYProgress, [0, 1], [150, -150]);
+
+  const translateY = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
     <section
-
       ref={heroRef}
-      className="relative pt-8 pb-20 overflow-hidden"
+      className="relative md:h-screen pb-10 overflow-hidden flex items-center"
     >
+      <div className="container mx-auto px-2 lg:px-10 relative z-10">
+        {/* Contenedor limitado */}
+        <div className="md:max-w-2xl text-center md:text-left">
+          {/* Título */}
+          <motion.h2
+            style={{ y: translateY }}
+            className="py-20 md:py-0 text-3xl sm:text-4xl md:text-5xl font-branley font-bold bg-[#152241] text-transparent bg-clip-text mt-4 sm:mt-8 leading-tight"
+          >
+            Con fridoom organiza tus finanzas personales en un solo lugar
+          </motion.h2>
 
-      {/* Gradiente hacia blanco */}
-      <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+          {/* Formulario */}
+          <div className="py-10 md:py-0flex flex-col sm:flex-row sm:flex-wrap gap-4 items-center sm:items-start justify-center md:justify-start mt-6">
+            <input
+              type="email"
+              placeholder="Ingresa tu correo"
+              className="w-full sm:w-auto mb-6 px-4 py-2 rounded-lg border border-gray-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <button className="w-full sm:w-auto px-6 py-2 font-redhat bg-orange-500 text-white rounded-lg font-medium hover:bg-blue-900 hover:text-white transition-colors">
+              Unirse al lanzamiento
+            </button>
+          </div>
 
-      <div className="container">
-        <div className="md:flex items-center">
-          <div className="md:w-[478px]">
-            <h1 className=" text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text mt-6">
-              Organiza tus finanzas
-            </h1>
-            <p className="text-lg text-white tracking-tight mt-6">
-              Accede a herramientas de gestión financiera y control de gastos.
-            </p>
-            <div className="flex gap-1 items-center mt-[30px]">
-              <button className="btn btn-primary">
-                Obtenlo gratis
-              </button>
-              <button className="btn btn-text">
-                <span>
-                  Aprende más
-                </span>
-                <ArrowIcon className="h-5 w-5" />
-              </button>
-            </div>
-          </div>
-          <div className="mt-20 md:mt-0 md:h-[648px] md:flex-1 relative lg:ml-20">
-            <motion.img
-              src={cogImage.src}
-              alt="cog"
-              width={505}
-              height={505}
-              className="md:absolute h-full md:w-auto md:max-w-none md:-left-6"
-              animate={{
-                translateY: [-30, 30],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                repeatType: "mirror",
-                ease: "easeInOut",
-              }}
-            />
-            <motion.img
-              src={coin.src}
-              alt="coin"
-              width={115}
-              height={135}
-              className="hidden md:block -top- -left-32 md:absolute"
-              style={{
-                translateY: translateY,
-              }}
-            />
-            <motion.img
-              src={noodleImage.src}
-              alt="pig image"
-              width={220}
-              height={135}
-              className="hidden lg:block absolute top-[494px] left-[290px] rotate-[30deg]"
-              style={{
-                translateX: translateY,
-                rotate: useTransform(translateY, (value) => value + 30),
-                translateY: translateY,
-              }}
-            />
-          </div>
+          {/* Descripción */}
+          <p className="text-sm text-[#152241] mt-4 text-center md:text-left px-2 sm:px-0">
+            Al dar click en “Unirse al lanzamiento” confirmas y aceptas que has leído nuestros{" "}
+            <a href="#" className="text-blue-900 underline">
+              Términos y Condiciones
+            </a>.
+          </p>
         </div>
       </div>
     </section>

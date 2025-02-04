@@ -32,3 +32,37 @@
         @apply p-10 border border-[#222222]/10  rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full
     }
 }
+@font-face {
+    font-family: "MiFuente";
+    src: url("/fonts/Branley.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "RedHatDisplay";
+    src: url("/fonts/RedHatDisplay-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "RedHatDisplay";
+    src: url("/fonts/RedHatDisplay-Italic-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: italic;
+}
+
+/* Aplicar la fuente RedHatDisplay como predeterminada */
+body {
+    font-family: "RedHatDisplay", sans-serif;
+}
+
+/* Clases de utilidad para aplicar la fuente en componentes específicos */
+.font-redhat {
+    font-family: "RedHatDisplay", sans-serif;
+}
+
+.font-branley {
+    font-family: "MiFuente", cursive;
+}

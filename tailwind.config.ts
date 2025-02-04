@@ -21,6 +21,9 @@ const config: Config = {
           lg: "80px",
         },
       },
+      fontFamily: {
+        mifuente: ["MiFuente", "sans-serif"],
+      },
     },
   },
   plugins: [],

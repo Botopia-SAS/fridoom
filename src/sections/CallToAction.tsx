@@ -17,7 +17,7 @@ export const CallToAction = () => {
   const translateY = useTransform(scrollYProgress, [0, 1], [150, -150]);
 
   return (
-    <section ref={sectionRef} className="bg-gradient-to-b from-white to-[#D2DCFF] py-24 overflow-x-clip">
+    <section ref={sectionRef} className="bg-transparent py-24 overflow-x-clip">
       <div className="container">
         <div className='section-heading relative'>
           <h2 className="section-title">
