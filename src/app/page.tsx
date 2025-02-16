@@ -21,14 +21,12 @@ export default function Home() {
 
       {/* Contenido */}
       <div className="relative">
-        <Header />
         <Hero />
       </div>
       <LogoTicker />
       <ProductShowcase />
       <Pricing />
       <CallToAction />
-      <Footer />
     </>
   );
 }
