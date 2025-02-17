@@ -27,7 +27,7 @@ export const Header = () => {
 
       {/* Barra de navegación */}
       <div className="py-4 px-4 md:px-2">
-        <div className="container mx-auto w-auto bg-white/30 backdrop-blur-md shadow-lg shadow-gray-600 rounded-full flex items-center justify-center gap-10">
+        <div className="container mx-auto w-auto bg-white/30 backdrop-blur-md shadow-lg shadow-gray-600 rounded-full flex items-center justify-center gap-44 md:gap-10">
           {/* Logo */}
           <Link href="/" className="flex">
             <Image
@@ -62,8 +62,8 @@ export const Header = () => {
 
       {/* Menú desplegable en Mobile */}
       {isMenuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-white shadow-lg rounded-lg z-10 flex flex-col items-center py-6 gap-4">
-          <a href="#" className="text-lg" onClick={() => setIsMenuOpen(false)}>Nosotros</a>
+        <div className="absolute top-36 left-0 w-full bg-white shadow-lg rounded-lg z-10 flex flex-col items-center py-4 gap-4">
+          <a href="/aboutus" className="text-lg" onClick={() => setIsMenuOpen(false)}>Nosotros</a>
           <a href="#" className="text-lg" onClick={() => setIsMenuOpen(false)}>Productos</a>
           <a href="#" className="text-lg" onClick={() => setIsMenuOpen(false)}>Blog</a>
           <a href="#" className="text-lg" onClick={() => setIsMenuOpen(false)}>Contacto</a>
