@@ -14,104 +14,77 @@ export default function RegisterPage() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (Object.values(formData).some((field) => field.trim() === "")) return;
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setError(data.error || "Error al enviar el formulario");
+      }
+    } catch (error) {
+      console.error("Error al enviar datos:", error);
+      setError("Hubo un error al conectar con el servidor");
+    }
+
+    setLoading(false);
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6">
-      {/* Contenedor del formulario */}
+    <section className="min-h-screen flex items-center justify-center px-6 bg-transparent">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full max-w-lg bg-white shadow-xl rounded-3xl p-8 -mt-36 text-center border border-gray-200"
+        className="w-full max-w-lg bg-white shadow-2xl rounded-3xl p-10 text-center border border-gray-300"
       >
-        {/* Título */}
         <h2 className="text-3xl sm:text-4xl font-bold text-[#152241]">
-          {submitted ? "¡Gracias por registrarte!" : "¡Holaa!"}
+          {submitted ? "¡Gracias por registrarte!" : "Únete a nuestra comunidad"}
         </h2>
 
-        {/* Formulario */}
         {!submitted ? (
-          <form className="mt-6 flex flex-col gap-4" onSubmit={handleSubmit}>
-            {/* Nombre */}
-            <input
-              type="text"
-              name="name"
-              placeholder="Nombre completo"
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
+          <form className="mt-6 flex flex-col gap-5" onSubmit={handleSubmit}>
+            <input type="text" name="name" placeholder="Nombre completo" className="input-field" onChange={handleChange} required />
+            <input type="email" name="email" placeholder="Correo electrónico" className="input-field" onChange={handleChange} required />
+            <input type="text" name="country" placeholder="País" className="input-field" onChange={handleChange} required />
+            <input type="text" name="city" placeholder="Ciudad" className="input-field" onChange={handleChange} required />
+            <input type="tel" name="whatsapp" placeholder="Número de WhatsApp" className="input-field" onChange={handleChange} required />
 
-            {/* Correo */}
-            <input
-              type="email"
-              name="email"
-              placeholder="Correo electrónico"
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
+            {error && <p className="text-red-500 text-sm">{error}</p>}
 
-            {/* País */}
-            <input
-              type="text"
-              name="country"
-              placeholder="País"
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={formData.country}
-              onChange={handleChange}
-              required
-            />
-
-            {/* Ciudad */}
-            <input
-              type="text"
-              name="city"
-              placeholder="Ciudad"
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={formData.city}
-              onChange={handleChange}
-              required
-            />
-
-            {/* WhatsApp */}
-            <input
-              type="tel"
-              name="whatsapp"
-              placeholder="Número de WhatsApp"
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={formData.whatsapp}
-              onChange={handleChange}
-              required
-            />
-
-            {/* Botón de enviar */}
-            <button
+            <motion.button
               type="submit"
-              className="w-full px-6 py-3 font-redhat bg-orange-500 text-white rounded-lg font-medium hover:bg-blue-900 hover:text-white transition-colors shadow-lg"
+              disabled={loading}
+              className="w-full px-6 py-3 bg-orange-500 text-white rounded-lg font-medium hover:bg-blue-900 transition-all transform hover:scale-105"
+              whileTap={{ scale: 0.95 }}
             >
-              Registrarme
-            </button>
+              {loading ? "Enviando..." : "Registrarme"}
+            </motion.button>
           </form>
         ) : (
-          <p className="text-lg text-[#152241] mt-4">
-            Recibirás más información en tu correo 📩
+          <p className="text-lg text-[#152241] mt-6">
+            🎉 ¡Registro exitoso! Te hemos enviado un correo de confirmación. No olvides revisar tu carpeta de spam.
           </p>
         )}
 
-        {/* Botón para volver */}
         <div className="mt-6">
           <Link href="/">
             <button className="text-blue-900 underline text-lg hover:text-blue-700 transition">
@@ -120,6 +93,23 @@ export default function RegisterPage() {
           </Link>
         </div>
       </motion.div>
+
+      <style jsx>{`
+        .input-field {
+          width: 100%;
+          padding: 12px;
+          border-radius: 8px;
+          border: 1px solid #d1d5db;
+          font-size: 16px;
+          color: #333;
+          outline: none;
+          transition: all 0.3s;
+        }
+        .input-field:focus {
+          border-color: #3b82f6;
+          box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+        }
+      `}</style>
     </section>
   );
 }

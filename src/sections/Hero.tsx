@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
 import { useRef } from "react";
 
 export const Hero = () => {
@@ -30,14 +31,13 @@ export const Hero = () => {
 
           {/* Formulario */}
           <div className="py-10 md:py-0flex flex-col sm:flex-row sm:flex-wrap gap-4 items-center sm:items-start justify-center md:justify-start mt-6">
-            <input
-              type="email"
-              placeholder="Ingresa tu correo"
-              className="w-full sm:w-auto mb-6 px-4 py-2 rounded-lg border border-gray-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <button className="w-full sm:w-auto px-6 py-2 font-redhat bg-orange-500 text-white rounded-lg font-medium hover:bg-blue-900 hover:text-white transition-colors">
-              Unirse al lanzamiento
-            </button>
+            <Link href="/form">
+              <button
+                className="bg-orange-500 text-white py-2 px-4 rounded-lg font-medium inline-flex items-center justify-center tracking-tight hover:bg-blue-900 hover:text-white transition-colors shadow-lg shadow-slate-600"
+              >
+                Registrarme
+              </button>
+            </Link>
           </div>
 
           {/* Descripción */}

@@ -26,15 +26,15 @@ export const Header = () => {
       </div>
 
       {/* Barra de navegación */}
-      <div className="py-4 px-4 md:px-10">
-        <div className="container mx-auto w-full bg-white/30 backdrop-blur-md shadow-lg shadow-gray-600 rounded-full flex items-center justify-between p-4">
+      <div className="py-4 px-4 md:px-2">
+        <div className="container mx-auto w-auto bg-white/30 backdrop-blur-md shadow-lg shadow-gray-600 rounded-full flex items-center justify-center gap-10">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex">
             <Image
               src="/fridoom.svg"
               alt="Fridoom Logo"
-              width={100}
-              height={100}
+              width={80}
+              height={80}
               className="rounded-lg cursor-pointer"
             />
           </Link>
@@ -44,8 +44,8 @@ export const Header = () => {
           </button>
 
           {/* Menú en pantallas grandes */}
-          <nav className="hidden md:flex items-center gap-12 text-lg">
-            <a href="#" className="hover:text-blue-900 transition">Nosotros</a>
+          <nav className="hidden md:flex items-center gap-12 lg:gap-32 text-lg justify-center text-center">
+            <a href="/aboutus" className="hover:text-blue-900 transition">Nosotros</a>
             <a href="#" className="hover:text-blue-900 transition">Productos</a>
             <a href="#" className="hover:text-blue-900 transition">Blog</a>
             <a href="#" className="hover:text-blue-900 transition">Contacto</a>
