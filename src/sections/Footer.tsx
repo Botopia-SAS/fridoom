@@ -13,7 +13,7 @@ export const Footer = () => {
       <div className="container">
         <nav className="flex flex-col md:flex-row md:justify-center gap-6 mt-6">
           <a href="">Nosotros</a>
-          <a href="">Opciones</a>
+          <a href="/privacy">Privacidad</a>
           <a href="">Clientes</a>
           <a href="">Precios</a>
           <a href="">Ayuda</a>
