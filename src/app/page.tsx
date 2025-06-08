@@ -6,16 +6,19 @@ import { Pricing } from "@/sections/Pricing";
 import { Testimonials } from "@/sections/Testimonials";
 import { CallToAction } from "@/sections/CallToAction";
 import { Footer } from "@/sections/Footer";
+import Image from 'next/image';
 
 export default function Home() {
   return (
     <>
       {/* Video Background */}
       <div className="fixed top-0 left-0 w-full h-full -z-10">
-        <img
+        <Image
           src="/3d.svg"
           alt="fondo"
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
+          priority
         />
       </div>
 

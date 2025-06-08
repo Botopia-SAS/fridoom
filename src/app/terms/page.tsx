@@ -32,7 +32,7 @@ export default function Terms() {
           <section>
             <h2 className="text-2xl font-bold mb-4">1. Aceptación</h2>
             <p className="text-justify">
-              Al crear una cuenta o utilizar la aplicación móvil, el bot de WhatsApp o cualquiera de los servicios de <strong>FRIDOOM S.A.S.</strong> (en adelante, "<strong>fridoom</strong>", "nosotros"), usted (el "<strong>Usuario</strong>") acepta íntegra y expresamente estos Términos y Condiciones de Uso (los "<strong>Términos</strong>"). Si no está de acuerdo, debe abstenerse de acceder o utilizar los Servicios.
+              Al crear una cuenta o utilizar la aplicación móvil, el bot de WhatsApp o cualquiera de los servicios de <strong>FRIDOOM S.A.S.</strong> (en adelante, &ldquo;fridoom&rdquo;, &ldquo;nosotros&rdquo;), usted (el &ldquo;Usuario&rdquo;) acepta íntegra y expresamente estos Términos y Condiciones de Uso (los &ldquo;Términos&rdquo;). Si no está de acuerdo, debe abstenerse de acceder o utilizar los Servicios.
             </p>
           </section>
 
